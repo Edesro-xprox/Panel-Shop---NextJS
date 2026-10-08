@@ -6,6 +6,7 @@ const useProduct = () => {
     const [products, setProducts] = useState<Product[]>([]);
     const [type, setType] = useState<FilterTypeProduct>("Todos");
     const [search, setSearch] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const typeMapping = {
         "Todos": "Todos",
@@ -17,6 +18,7 @@ const useProduct = () => {
     }
 
     const fetchProducts = async () => {
+        setLoading(true)
         let data = [];
         const res = await productService.getProducts();
         if(type == 'Todos'){
@@ -28,6 +30,7 @@ const useProduct = () => {
             ];
         }
         setProducts(data);
+        setLoading(false)
     };
 
     // const fetchProductsById = async (id: string) => {
@@ -56,8 +59,7 @@ const useProduct = () => {
         search,
         setSearch,
         handleToggleStatus,
-        // fetchProductsById,
-        // edit
+        loading
     };
 }
 

@@ -7,10 +7,11 @@ import { getMockProducts } from "@/lib/products-mock";
 import type { FilterTypeProduct, Product } from "@/types/product.ts";
 import productService from "@/services/productService";
 import useProduct from "@/hooks/useProduct";
+import LoadingOverlay from "@/components/LoadingOverlay";
 
 // Ruta: /productos — primera vista del menú PRODUCTOS.
 export default function ProductsPage() {
-  const { products, type, setType, search, setSearch, handleToggleStatus } = useProduct();
+  const { products, type, setType, search, setSearch, handleToggleStatus, loading } = useProduct();
 
   return (
     <div className="bg-white p-5 rounded">
@@ -21,7 +22,7 @@ export default function ProductsPage() {
         onTypeChange={setType}
         onSearchChange={setSearch}
       />
-      <ProductTable products={products} handleToggleStatus={handleToggleStatus} />
+      {loading ? <LoadingOverlay open={loading}></LoadingOverlay> : <ProductTable products={products} handleToggleStatus={handleToggleStatus} />}
     </div>
   );
 }
