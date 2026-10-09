@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { Product, TypeProduct } from "@/types/product";
 import productService from "@/services/productService";
+import useProduct from "@/hooks/useProduct";
 
 // Formulario para CREAR y EDITAR (misma vista, como pediste).
 // - Si recibe `initialProduct`, edita. Si no, crea uno nuevo.
@@ -75,6 +76,8 @@ export function ProductForm({ product }: { product?: Product | null }) {
       <h2 className="mb-4 text-lg font-bold">
         {product ? "Editar producto" : "Nuevo producto"}
       </h2>
+
+
 
       <div className="grid sm:grid-cols-3">
         <div className="sm:col-span-1">

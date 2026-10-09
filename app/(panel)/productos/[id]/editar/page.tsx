@@ -12,7 +12,6 @@ export default function EditProductPage() {
   
   return (
     <div>
-      <h1 className="mb-4 text-xl font-bold">Editar:</h1>
       <ProductForm key={productToEdit?._id ?? "loading"} product={productToEdit} />
     </div>
   );
