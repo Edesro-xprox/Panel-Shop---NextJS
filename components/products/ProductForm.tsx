@@ -24,6 +24,7 @@ export function ProductForm({ product }: { product?: Product | null }) {
   const [description, setDescription] = useState(product?.description ?? "");
   const [price, setPrice] = useState(product?.price?.toString() ?? "");
   const [type, setType] = useState<string>(product?.type ?? "laptop");
+  const [supplier, setSupplier] = useState(product?.supplier ?? "");
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
   const [saveError, setSaveError] = useState("");
   const initialImageUrl = product?.image
@@ -54,7 +55,7 @@ export function ProductForm({ product }: { product?: Product | null }) {
       description,
       price: Number(price),
       type,
-      supplier: product?.supplier ?? "",
+      supplier,
       image: selectedImage ?? undefined,
     };
 
@@ -107,6 +108,9 @@ export function ProductForm({ product }: { product?: Product | null }) {
             className={`${inputClass} mb-4`}
             rows={3}
           />
+
+          <label className="mb-1 block text-sm font-medium">Proveedor</label>
+          <input value={supplier} onChange={(e) => setSupplier(e.target.value)} className={`${inputClass} mb-4`} required />
 
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
