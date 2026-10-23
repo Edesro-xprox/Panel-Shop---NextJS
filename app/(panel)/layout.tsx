@@ -17,7 +17,7 @@ export default function PanelLayout({ children }: { children: React.ReactNode })
     if (ready && !user) router.push("/login");  
   }, [ready, user, router]);
 
-  if (!ready) return <p className="p-8">Cargando panel...</p>;
+  if (!ready) return <p className="p-8 text-center">Cargando panel...</p>;
   if (!user) return null;
 
   return (

@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "services/productService.js"  ],
+, "services/productService.js", "services/userService.js"  ],
   "exclude": ["node_modules"]
 }

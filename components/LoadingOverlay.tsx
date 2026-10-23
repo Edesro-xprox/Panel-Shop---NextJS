@@ -1,7 +1,8 @@
+import type { CSSProperties } from 'react';
 import type { LoadingProps } from '../types/loadingType.ts';
 
 function LoadingOverlay({ open }: LoadingProps) {
-    const loadingOverlay: any = {
+    const loadingOverlay: CSSProperties = {
         position: 'fixed',
         inset: 0,
         zIndex: 9999,

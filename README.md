@@ -27,18 +27,19 @@ app/
 	(auth)/login/        Pantalla de inicio de sesión
 	(panel)/             Secciones protegidas del panel
 		productos/         Listado, creación y edición de productos
-		usuarios/          Sección de usuarios
+		usuarios/          Listado, creación y edición de usuarios
 	globals.css          Estilos globales
 components/
 	auth/                Componentes de autenticación
 	layout/              Logo y navegación lateral
 	products/            Filtros, formulario y tabla de productos
+	users/               Filtros, formulario y tabla de usuarios
 context/               Contexto de autenticación
 hooks/                 Hooks de la aplicación
 lib/                   API, autenticación simulada y datos mock
 public/                Recursos estáticos
-services/              Comunicación con los servicios de productos
-types/                 Tipos TypeScript
+services/              Comunicación con los servicios de productos y usuarios
+types/                 Tipos TypeScript de productos y usuarios
 utils/                 Utilidades
 ```
 
@@ -56,7 +57,7 @@ utils/                 Utilidades
 	 Copy-Item .env.example .env
 	 ```
 
-	 Define `NEXT_PUBLIC_API_URL` con la URL base de la API de productos y `NEXT_PUBLIC_BLOB_URL` con la URL base usada para servir las imágenes.
+	 Define `NEXT_PUBLIC_API_URL` con la URL base de la API, que debe ofrecer los endpoints de productos y usuarios. La sección de usuarios consume `GET /users`, `GET /users/:id`, `POST /users` y `PUT /users/:id`. Define también `NEXT_PUBLIC_BLOB_URL` con la URL base usada para servir las imágenes.
 
 3. Inicia el servidor de desarrollo:
 
